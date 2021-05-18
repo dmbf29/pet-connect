@@ -2,7 +2,7 @@
   <%= f.input :name %>
   <%= f.input :address, html5: true %>
   <%= f.input :species, collection: Pet::SPECIES, include_blank: false %>
-  <%= f.input :found_on, html5: true %>
+  <%= f.input :found_on, html5: true, input_html: { max: Date.today } %>
   <%= f.submit 'Add', class: 'btn btn-info mt-2' %>
 <% end %>
 <%= link_to 'Back', pets_path, class: 'btn-light'  %>

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between">
+    <h1>Found Pets</h1>
+    <%= link_to 'Add', new_pet_path %>
+  </div>
+  <div class="cards">
+    <% @pets.each do |pet| %>
+      <div class="card-product">
+        <%= image_tag "https://source.unsplash.com/200x200/?#{pet.species}" %>
+        <div class="card-product-infos">
+          <h2><%= pet.name %></h2>
+          <p><%= pet.address %> - Found <%= pluralize(pet.found_days_ago, 'day') %> ago</p>
+        </div>
+        <%= link_to '', pet_path(pet), class: 'card-link'  %>
+      </div>
+    <% end %>
+  </div>
+</div>

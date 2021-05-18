@@ -1,10 +1,16 @@
 <div class="container mt-5">
+  <p><%= link_to '< Back', pets_path, class: 'btn-light' %></p>
   <div class="card-product">
     <%= image_tag "https://source.unsplash.com/200x200/?#{@pet.species}" %>
     <div class="card-product-infos">
       <h2><%= @pet.name %></h2>
       <p><%= @pet.address %> - Found <%= pluralize(@pet.found_days_ago, 'day') %> ago</p>
     </div>
+    <%= link_to pet_path(@pet), method: :delete, data: { confirm: "Remove #{@pet.name}?"}, class: 'card-action card-destroy' do %>
+      <i class="fas fa-times"></i>
+    <% end %>
+    <%= link_to edit_pet_path(@pet), class: 'card-action card-edit' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
   </div>
-  <p><%= link_to 'All pets', pets_path  %></p>
 </div>
